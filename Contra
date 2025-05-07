@@ -1,0 +1,15 @@
+import sqlite3
+
+def mostrar_usuarios_registrados():
+    conexion = sqlite3.connect('usuarios.db')
+    cursor = conexion.cursor()
+    cursor.execute("SELECT nombre_usuario, clave_cifrada FROM tabla_usuarios")
+    filas = cursor.fetchall()
+    conexion.close()
+
+    print("\n📋 Usuarios registrados:")
+    for usuario, hash_clave in filas:
+        print(f"Usuario: {usuario} → Hash de contraseña: {hash_clave}")
+
+# Llama la función para ver los usuarios registrados
+mostrar_usuarios_registrados()
