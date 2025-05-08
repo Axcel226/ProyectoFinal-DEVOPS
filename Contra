@@ -1,7 +1,7 @@
 import sqlite3
 
 def mostrar_usuarios_registrados():
-    conexion = sqlite3.connect('usuarios.db')
+    conexion = sqlite3.connect('Usuarios_Xbox.db')  # Nuevo nombre de la base de datos
     cursor = conexion.cursor()
     cursor.execute("SELECT nombre_usuario, clave_cifrada FROM tabla_usuarios")
     filas = cursor.fetchall()

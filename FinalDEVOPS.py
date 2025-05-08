@@ -7,7 +7,7 @@ def obtener_hash_contrasena(password):
 
 # -------- CREAR BASE DE DATOS Y TABLA --------
 def crear_base_y_tabla():
-    conexion = sqlite3.connect('usuarios.db')
+    conexion = sqlite3.connect('Usuarios_Xbox.db')  # Nuevo nombre de la base de datos
     cursor = conexion.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS tabla_usuarios (
@@ -38,7 +38,7 @@ def insertar_usuario_interactivo():
     datos_usuario = (usuario, nombre, correo, telefono, direccion, hash_clave)
 
     try:
-        conexion = sqlite3.connect('usuarios.db')
+        conexion = sqlite3.connect('Usuarios_Xbox.db')  # Nuevo nombre de la base de datos
         cursor = conexion.cursor()
         consulta = '''
             INSERT INTO tabla_usuarios (
@@ -56,7 +56,7 @@ def insertar_usuario_interactivo():
 
 # -------- CONSULTAR USUARIO --------
 def buscar_usuario(nombre_usuario):
-    conexion = sqlite3.connect('usuarios.db')
+    conexion = sqlite3.connect('Usuarios_Xbox.db')  # Nuevo nombre de la base de datos
     cursor = conexion.cursor()
     cursor.execute("SELECT * FROM tabla_usuarios WHERE nombre_usuario = ?", (nombre_usuario,))
     resultado = cursor.fetchone()
